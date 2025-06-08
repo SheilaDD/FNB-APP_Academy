@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="login-container">
+      
+    <p>Welcome. Please log in below</p>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <br />
+      <p id="message"></p>
+      <br />
+      <a href="#" onclick="verfyUser()">Login</a>
+      <br />
+    </form>
+    </div>
+    
+    <script>
+      function verfyUser() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        checkUserCreds(username, password);
+      }
+
+      function checkUserCreds(username, password) {
+        let systemUsername = "admin";
+        let systemPassword = "pw123";
+
+        if (username === systemUsername && password === systemPassword) {
+          document.getElementById("message").innerHTML = "Login successful!";
+        } else {
+          document.getElementById("message").innerHTML =
+            "Login failed. Please try again.";
+        }
+      }
+    </script>
+  </body>
+</html>

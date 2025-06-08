@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="weatheradvise">
+      <label for="weather">What is the weather today: </label>
+      <select id="weather">
+        <option value="sunny">Sunny</option>
+        <option value="rainy">Rainy</option>
+        <option value="cloudy">Cloudy</option>
+        <option value="foggy">Foggy</option>
+        <option value="stormy">Stormy</option>
+        <option value="snowy">Snowy</option>
+        <option value="windy">Windy</option>
+        <option value="hail">Hail</option>
+      </select>
+      <a href="#" onclick="btnPressed()"> GO !</a>
+      <p id="output">Weather advice :</p>
+    </div>
+    <script>
+      function btnPressed() {
+        let weatherSelected = document.getElementById("weather").value;
+        let advise;
+
+        switch (weatherSelected) {
+          case "sunny":
+            advise = "Wear sunglasses and sunscreen.";
+            break;
+          case "rainy":
+            advise = "Take an umbrella.";
+            break;
+          case "cloudy":
+            advise = "It might rain, so be prepared.";
+            break;
+          case "foggy":
+            advise = "Drive carefully, visibility is low.";
+            break;
+          case "stormy":
+            advise = "Stay indoors and avoid going out.";
+            break;
+          case "snowy":
+            advise = "Wear warm clothes and be cautious on the roads.";
+            break;
+          case "windy":
+            advise = "Hold onto your hat!";
+            break;
+          case "hail":
+            advise = "Seek shelter to avoid getting hurt.";
+            break;
+          default:
+            advise = "Weather not recognized. Stay safe!";
+        }
+        document.getElementById("output").innerHTML =
+          "Weather advice: " + advise;
+      }
+    </script>
+  </body>
+</html>

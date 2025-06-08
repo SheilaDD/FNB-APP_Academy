@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="heading1">Hello</h1>
+    <p id="paragraph1">Everyone</p>
+    <p id="paragraph2">This is a paragraph</p>
+
+    <script>
+      let text1;
+      let text2;
+      let text3;
+
+      let numA;
+      let numB;
+
+      text1 = "Hello";
+      text2 = "Everyone";
+      text3 = " this is a paragraph";
+
+      numA = 10;
+      numB = 20;
+
+      document.getElementById("heading1").innerHTML = text1;
+      document.getElementById("paragraph1").innerHTML = text2 + text3;
+      document.getElementById("paragraph2").innerHTML = `${numA} x ${numB} = ${
+        numA * numB
+      }`;
+      // ${numA} * ${numB} is a template literal, it allows you to embed expressions inside string literals
+      // it is enclosed in backticks (``) not double quotes ("")
+      //numbers display without double quotes, if you want to calculate
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+#login-container {
+  font-family: Arial, sans-serif;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #30e4e1;
+  border-radius: 5px;
+  background-color: #f1c3c3;
+  text-align: center;
+}
+#login-container h2 {
+  color: #30e4e1;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#weatheradvise {
+  font-size: 14px;
+  color: aqua;
+  color: #333;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #d2b1f3;
+  border: 1px solid #f26795;
+  border-radius: 5px;
+  text-align: center;
+}
