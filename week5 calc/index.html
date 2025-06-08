@@ -1,0 +1,118 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <tr>
+        <td colspan="4">
+          <input type="text" id="inputBox" value="0" style="width: 100%" />
+        </td>
+      </tr>
+      <tr>
+        <td onclick="persent()">%</td>
+        <td onclick="clearpressed()">AC</td>
+        <td onclick="deleteOne()">Del</td>
+        <td onclick="operatoprPressed('+')">+</td>
+      </tr>
+      <tr>
+        <td onclick="digitPressed(7)">7</td>
+        <td onclick="digitPressed(8)">8</td>
+        <td onclick="digitPressed(9)">9</td>
+        <td onclick="operatoprPressed('/')">/</td>
+      </tr>
+      <tr>
+        <td onclick="digitPressed(4)">4</td>
+        <td onclick="digitPressed(5)">5</td>
+        <td onclick="digitPressed(8)">6</td>
+        <td onclick="operatoprPressed('*')">*</td>
+      </tr>
+      <tr>
+        <td onclick="digitPressed(1)">1</td>
+        <td onclick="digitPressed(2)">2</td>
+        <td onclick="digitPressed(3)">3</td>
+        <td onclick="operatoprPressed('-')">-</td>
+      </tr>
+      <tr>
+        <td colspan="1" onclick="digitPressed(0)">0</td>
+        <td onclick="operatoprPressed('.')">.</td>
+        <td onclick="equal()" colspan="2">=</td>
+      </tr>
+    </table>
+    <script>
+      let newline = true;
+      let value1;
+      let currentOperator;
+
+      function deleteOne() {
+        let currentValue = document.getElementById("inputBox").value;
+        if (currentValue.length > 1) {
+          document.getElementById("inputBox").value = currentValue.slice(0, -1);
+        } else {
+          document.getElementById("inputBox").value = "0";
+        }
+      }
+
+      function digitPressed(button) {
+        if (newline) {
+          document.getElementById("inputBox").value = button;
+          newline = false;
+        } else {
+          let currentValue = document.getElementById("inputBox").value;
+
+          document.getElementById("inputBox").value = currentValue + button;
+        }
+      }
+
+      function clearpressed() {
+        let currentValue = document.getElementById("inputBox").value;
+        document.getElementById("inputBox").value = "0";
+        newline = true;
+      }
+
+      function operatoprPressed(operator) {
+        currentOperator = operator;
+        value1 = parseFloat(document.getElementById("inputBox").value);
+        currentOperator = operator;
+        newline = true;
+      }
+
+      function persent() {
+        let inputBox = document.getElementById("inputBox");
+        let value = parseFloat(inputBox.value);
+        inputBox.value = value / 100;
+        newline = true;
+      }
+      function equal() {
+        let value2 = parseFloat(document.getElementById("inputBox").value);
+        let result;
+
+        switch (currentOperator) {
+          case "+":
+            result = value1 + value2;
+            break;
+          case "-":
+            result = value1 - value2;
+            break;
+          case "*":
+            result = value1 * value2;
+            break;
+          case "/":
+            result = value1 / value2;
+            break;
+
+          case ".":
+            result = value1.toFixed(2); // Assuming you want to round to 2 decimal places
+          default:
+            return; // No operator selected
+        }
+
+        document.getElementById("inputBox").value = result;
+        newline = true;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+tr {
+  height: 16.02vh;
+  background-color: #444;
+}
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  color: aqua;
+  background-color: #333;
+}
+th {
+  padding: 10px;
+  border: 1px solid #ddd;
+  color: aqua;
+  background-color: #444;
+  width: 25vw;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  color: #fff;
+}
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
