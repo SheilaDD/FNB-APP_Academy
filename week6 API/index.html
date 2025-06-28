@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body onload="fetchContacts()">
+    <div id="table">Contact Loading ...</div>
+    <button id="refresh" type="button">Refresh</button>
+    <button id="addContact" type="button">Add Contact</button>
+
+    <script src="config.js"></script>
+    <script>
+      document
+        .getElementById("addContact")
+        .addEventListener("click", addContact);
+
+      document
+        .getElementById("refresh")
+        .addEventListener("click", fetchContacts);
+
+      function fetchContacts() {
+        fetch(rootPath + "controller/get-contacts/")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            displayOutput(data);
+          });
+      }
+
+      function displayOutput(data) {
+        output = "<table>";
+
+        for (a in data) {
+          output += `<tr onlick="editContact${data[a].id}">
+            <td>
+              <img src="${rootPath}controller/upload/${data[a].avatar}" />
+            </td>
+            <td>
+              <h5>${data[a].firstname}</h5>
+            </td>
+            <td>
+              <h5>${data[a].lastname}</h5>
+            </td>
+          </tr>`;
+        }
+
+        output += "</table>";
+        document.getElementById("table").innerHTML = output;
+      }
+      // Function to redirect to add-contact.html
+      // This function is called when the "Add Contact" button is clicked
+      function addContact() {
+        (window.location.href = "add-contact.html"), "_self"; // Redirect to add-contact.html
+      }
+
+      function editContact(id) {
+        window.location.href = ("edit-contact.html?id=" + id, "_self"); // Redirect to edit-contact.html
+      }
+    </script>
+  </body>
+</html>
